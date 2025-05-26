@@ -3,7 +3,7 @@ name: Despliegue automático a EC2
 on:
   push:
     branches:
-      - main  # Cambia aquí si usas otra rama
+      - main  # Cambia si usas otra rama
 
 jobs:
   deploy:
@@ -21,6 +21,6 @@ jobs:
     - name: Desplegar código en EC2
       run: |
         ssh -o StrictHostKeyChecking=no ec2-user@54.208.83.189 << 'EOF'
-          cd /home/ec2-user/tu-carpeta-proyecto
+          cd /home/ec2-user/ci-test
           git pull origin main
         EOF
